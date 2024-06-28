@@ -78,10 +78,9 @@ if __name__ == "__main__":
 
     if args.name:
         events = UserEvent.find(UserEvent.userid == args.name).all()
-        count = 0
-        for e in events:
-            UserEvent.delete(e.pk)
-            count += 1
+        count = UserEvent.find(UserEvent.userid == args.name).count()
+        # for e in events:
+        #     UserEvent.delete(e.pk)
 
         print('all count', count)
     
